@@ -121,7 +121,7 @@ func main() {
 	fmt.Println(p4)
 }
 
-// define a struct
+// define a struct for three dimonsional cordinate
 type point struct {
 	x float32
 	y float32
