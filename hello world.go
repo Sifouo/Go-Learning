@@ -121,6 +121,7 @@ func main() {
 	fmt.Println(p4)
 }
 
+// define a struct
 type point struct {
 	x float32
 	y float32
