@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 )
 
@@ -119,6 +120,14 @@ func main() {
 	fmt.Println(p1, p2, p3)
 	p4 := newPoint(4, 6.6, 6)
 	fmt.Println(p4)
+	p5 := p4
+	p6 := *p4
+	fmt.Println(p5)
+	p6.x = 0
+	fmt.Println(p6)
+	p7 := &p6
+	fmt.Println(p7)
+	fmt.Println(p2.length())
 }
 
 // define a struct for three dimonsional cordinate
@@ -166,4 +175,11 @@ func filter(arr []int, cond func(int) bool) []int {
 func newPoint(x, y, z float32) *point {
 	p := point{x: x, y: y, z: z}
 	return &p
+}
+func (p point) length() float64 {
+	return math.Sqrt(
+		(math.Pow(float64(p.x), 2) +
+			math.Pow(float64(p.y), 2) +
+			math.Pow(float64(p.z), 2)))
+
 }
