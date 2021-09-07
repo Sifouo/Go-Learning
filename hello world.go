@@ -4,7 +4,11 @@ import (
 	"fmt"
 	"math"
 	"strconv"
+
+	"github.com/google/go-cmp/cmp"
 )
+
+var height map[string]int
 
 func main() {
 	fmt.Println("Hello World!") //Ch1
@@ -128,6 +132,22 @@ func main() {
 	p7 := &p6
 	fmt.Println(p7)
 	fmt.Println(p2.length())
+	n1 := Address{Name: []string{"Mahdi"}}
+	n2 := Address{Name: []string{"Ali"}}
+	fmt.Println(cmp.Equal(n1, n2))
+	height = make(map[string]int)
+	height["Mahdi"] = 11
+	fmt.Println(height["Mahdi"])
+	if v, ok := height["Ali"]; ok {
+		fmt.Println(v)
+	} else {
+		fmt.Println("the key does'nt exist !")
+	}
+	height = make(map[string]int)
+	height["mohammad"] = 24
+	height = make(map[string]int)
+	height["Reza"] = 67
+	delete(height, "Mahdi")
 }
 
 // define a struct for three dimonsional cordinate
@@ -135,6 +155,10 @@ type point struct {
 	x float32
 	y float32
 	z float32
+}
+
+type Address struct {
+	Name []string
 }
 
 func DoSomething() (int, bool) {
