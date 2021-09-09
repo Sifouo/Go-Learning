@@ -3,12 +3,11 @@ package main
 import (
 	"fmt"
 	"math"
+	"sort"
 	"strconv"
 
 	"github.com/google/go-cmp/cmp"
 )
-
-var height map[string]int
 
 func main() {
 	fmt.Println("Hello World!") //Ch1
@@ -22,7 +21,7 @@ func main() {
 
 	var z bool = true
 	fmt.Println(z)
-
+	var height map[string]int
 	FirstName := "Mahdi"
 	LastName, Age, ID := "Rezaei", "18", "1279403829"
 	var god string = "in\tthe\tname\tof\tgod"
@@ -143,11 +142,26 @@ func main() {
 	} else {
 		fmt.Println("the key does'nt exist !")
 	}
-	height = make(map[string]int)
-	height["mohammad"] = 24
-	height = make(map[string]int)
-	height["Reza"] = 67
-	delete(height, "Mahdi")
+	height["Ali"] = 28
+	/*if _, ok := height["Ali"]; ok {
+		delete(height, "Ali")
+	} else {
+		fmt.Println("Key does'nt exist")
+	}*/
+	l := len(height)
+	fmt.Println(l)
+	delete(height, "Ali")
+	for v, k := range height {
+		fmt.Println(v, k)
+	}
+	var keys []string
+	for k := range height {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	for _, s := range keys {
+		fmt.Println(s)
+	}
 }
 
 // define a struct for three dimonsional cordinate
