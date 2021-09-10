@@ -21,7 +21,7 @@ func main() {
 
 	var z bool = true
 	fmt.Println(z)
-	var height map[string]int
+	height := map[string]int{"Mahdi": 12, "Ali": 43, "Morteza": 678}
 	FirstName := "Mahdi"
 	LastName, Age, ID := "Rezaei", "18", "1279403829"
 	var god string = "in\tthe\tname\tof\tgod"
@@ -134,23 +134,14 @@ func main() {
 	n1 := Address{Name: []string{"Mahdi"}}
 	n2 := Address{Name: []string{"Ali"}}
 	fmt.Println(cmp.Equal(n1, n2))
-	height = make(map[string]int)
-	height["Mahdi"] = 11
 	fmt.Println(height["Mahdi"])
 	if v, ok := height["Ali"]; ok {
 		fmt.Println(v)
 	} else {
 		fmt.Println("the key does'nt exist !")
 	}
-	height["Ali"] = 28
-	/*if _, ok := height["Ali"]; ok {
-		delete(height, "Ali")
-	} else {
-		fmt.Println("Key does'nt exist")
-	}*/
 	l := len(height)
 	fmt.Println(l)
-	delete(height, "Ali")
 	for v, k := range height {
 		fmt.Println(v, k)
 	}
@@ -161,6 +152,14 @@ func main() {
 	sort.Strings(keys)
 	for _, s := range keys {
 		fmt.Println(s)
+	}
+
+	//in  this code snipptes compiler has error...
+	if _, ok := height["Ali"]; ok {
+		//delete(height, "Ali")
+		fmt.Printf("%v", height)
+	} else {
+		fmt.Println("key does'nt exist !!!")
 	}
 }
 
