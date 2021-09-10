@@ -157,10 +157,34 @@ func main() {
 	//in  this code snipptes compiler has error...
 	if _, ok := height["Ali"]; ok {
 		//delete(height, "Ali")
-		fmt.Printf("%v", height)
+		fmt.Printf("%v\n", height)
 	} else {
 		fmt.Println("key does'nt exist !!!")
 	}
+
+	var members map[int]people
+	members = make(map[int]people)
+	members[1] = people{
+		name:    "Mahdi",
+		address: "Isfahan",
+		dob: dob{
+			day:   13,
+			month: 5,
+			year:  2002,
+		},
+	}
+	fmt.Println(members[1])
+}
+
+type dob struct {
+	day   int
+	month int
+	year  int
+}
+type people struct {
+	name    string
+	address string
+	dob     dob
 }
 
 // define a struct for three dimonsional cordinate
