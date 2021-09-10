@@ -163,6 +163,7 @@ func main() {
 	}
 
 	var members map[int]people
+
 	members = make(map[int]people)
 	members[1] = people{
 		name:    "Mahdi",
@@ -173,7 +174,38 @@ func main() {
 			year:  2002,
 		},
 	}
+
+	members[2] = people{
+		name:    "Ali",
+		address: "Tehran",
+		dob: dob{
+			day:   26,
+			month: 3,
+			year:  1998,
+		},
+	}
+	members[3] = people{
+		name:    "Mobina",
+		address: "Babol",
+		dob: dob{
+			day:   30,
+			month: 11,
+			year:  2006,
+		},
+	}
+	var slicemembers []people
 	fmt.Println(members[1])
+	for k := range members {
+		slicemembers = append(slicemembers, members[k])
+	}
+	sort.SliceStable(slicemembers, func(i, j int) bool {
+		return slicemembers[i].dob.year <
+			slicemembers[j].dob.year
+	})
+
+	for _, k := range slicemembers {
+		fmt.Println(k)
+	}
 }
 
 type dob struct {
