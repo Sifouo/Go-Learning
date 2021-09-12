@@ -174,7 +174,7 @@ func main() {
 			year:  2002,
 		},
 	}
-
+	//we copy our map into a slice
 	members[2] = people{
 		name:    "Ali",
 		address: "Tehran",
