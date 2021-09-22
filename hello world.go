@@ -7,6 +7,8 @@ import (
 	"strconv"
 
 	"github.com/google/go-cmp/cmp"
+
+	"encoding/json"
 )
 
 func main() {
@@ -206,8 +208,21 @@ func main() {
 	for _, k := range slicemembers {
 		fmt.Println(k)
 	}
+	JSONString := `{"name":"Ali","Family":"Ahmadi"}`
+	var man person
+	er := json.Unmarshal([]byte(JSONString), &man)
+	if er == nil {
+		fmt.Println(man)
+	} else {
+		fmt.Println("OOPS!!!")
+	}
+	encode()
 }
 
+type person struct {
+	Name   string
+	Family string
+}
 type dob struct {
 	day   int
 	month int
