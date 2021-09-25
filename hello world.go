@@ -217,6 +217,8 @@ func main() {
 		fmt.Println("OOPS!!!")
 	}
 	encode()
+	decode()
+	Printt()
 }
 
 type person struct {
