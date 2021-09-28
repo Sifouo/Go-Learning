@@ -20,7 +20,7 @@ func decode() {
 		Dob: dob,
 	}
 
-	mahdiJson, err := json.Marshal(Mahdi)
+	mahdiJson, err := json.MarshalIndent(Mahdi, "", "    ")
 	if err == nil {
 		fmt.Println(string(mahdiJson))
 	} else {
