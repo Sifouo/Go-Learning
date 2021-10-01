@@ -219,6 +219,7 @@ func main() {
 	encode()
 	decode()
 	Printt()
+	printstr()
 }
 
 type person struct {
