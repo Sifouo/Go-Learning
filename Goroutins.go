@@ -13,6 +13,7 @@ func say(s string, t int) {
 }
 
 func goruotin() {
-	say("hello", 3)
-	say("world", 2)
+	go say("hello", 2)
+	go say("world", 3)
+	fmt.Scanln()
 }
