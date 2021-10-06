@@ -220,6 +220,8 @@ func main() {
 	decode()
 	Printt()
 	printstr()
+	goruotin()
+	calucation()
 }
 
 type person struct {
